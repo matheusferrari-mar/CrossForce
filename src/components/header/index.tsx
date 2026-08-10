@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import header from "@/src/components/header"
 
 export default function Header() {
   return (
@@ -18,7 +19,7 @@ export default function Header() {
       <nav>
         <ul className="flex gap-8 text-white font-medium">
           <li>
-            <Link href="/">Sobre</Link>
+            <Link href="/sobrePage/">Sobre</Link>
           </li>
           <li>
             <Link href="/">Planos</Link>
