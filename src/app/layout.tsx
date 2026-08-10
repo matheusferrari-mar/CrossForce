@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import Header from "@/src/components/header";
+import Footer from "../components/footer";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -12,9 +14,6 @@ export const metadata: Metadata = {
   title: "Academia Cross Force",
   description: "Site de uma rede de academias",
 };
-
-import Header from "@/src/components/header";
-import Footer from "../components/footer";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
