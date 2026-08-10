@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 import Header from "@/src/components/header";
+import Footer from "../components/footer";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
+        <Footer/>
       </body>
     </html>
   );
