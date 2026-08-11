@@ -29,13 +29,13 @@ export default function SobrePage() {
               </p>
             </div>
             
-            <div className="flex-1 flex justify-center md:justify-end w-full">
+           
               <img 
                 src="/img/sobreImages/mapa.png" 
                 alt="Localização no mapa" 
-                className="w-full max-w-md rounded-2xl shadow-xl object-cover"
+                className="w-full max-w-md rounded-2xl shadow-xl transition-transform hover:scale-120  "
               />
-            </div>
+            
           </section>
 
         
@@ -50,7 +50,7 @@ export default function SobrePage() {
                   key={index}
                   src={img}
                   alt={`Ambiente ${index + 1}`}
-                  className="w-full aspect-square object-cover rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
+                  className="w-full aspect-square hover:scale-110 transition-transform object-cover rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
                 />
               ))}
             </div>
