@@ -3,17 +3,36 @@
 import React, { useState } from 'react';
 import PlanoCard from '@/src/components/planCard';
 import AdminToggle from '@/src/components/adminToogle';
-import PlanoModal from '@/src/components/planModalCreate'; 
+import PlanoModal from '@/src/components/planModal'; 
 import planosJson from "@/src/lib/planos.json"
-
+export interface Plano {
+  id: number;
+  nomePlano: string;
+  valorMensal: number;
+  frequencia: number;
+  beneficios: string[];
+  popular: boolean;
+}
 
 export default function PlanosPage() {
   const [isAdmin, setIsAdmin] = useState(false); 
-  const [planosData, setPlanosData] = useState(planosJson);
+  const [planosData, setPlanosData] = useState<Plano[]>(planosJson);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleSalvarPlano = (novoPlano: { id: number; nomePlano: string; valorMensal: number; frequencia: number; beneficios: string[]; popular: boolean; }) => {
-    setPlanosData([...planosData, novoPlano]);
+  const [planoEditando,setPlanoEditando] = useState<Plano | null>(null);
+
+const handleSalvarPlano = (planoSalvo:Plano) => {
+    if (planoEditando) {
+      const novaLista = planosData.map((p) => 
+        p.id === planoSalvo.id ? planoSalvo : p
+      );
+      setPlanosData(novaLista);
+    } else {
+      setPlanosData([...planosData, planoSalvo]);
+    }
+    
+   
     setIsModalOpen(false);
+    setPlanoEditando(null);
   };
 
 
@@ -24,6 +43,18 @@ export default function PlanosPage() {
       setPlanosData(novaLista);
     }
   }
+
+
+  const handleEditPlano = (plano:Plano) => {
+    setPlanoEditando(plano);
+    setIsModalOpen(true);
+  };
+
+
+  const handleFecharModal = () => {
+    setIsModalOpen(false);
+    setPlanoEditando(null);
+  };
 
   return (
     <div className="min-h-screen bg-[#121212] py-20 px-6 font-sans flex flex-col items-center">
@@ -55,11 +86,11 @@ export default function PlanosPage() {
         <div className="flex flex-wrap justify-center gap-8 w-full">
           {planosData.map((plano) => (
             <PlanoCard 
-              key={plano.id} 
-              plano={plano} 
-              isAdmin={isAdmin} 
+              key={plano.id}
+              plano={plano}
+              isAdmin={isAdmin}
               onDelete={handleDelete}
-            />
+              onEdit={handleEditPlano}            />
           ))}
         </div>
       </div>
@@ -68,6 +99,7 @@ export default function PlanosPage() {
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         onSave={handleSalvarPlano} 
+        planoEmEdicao={planoEditando}
       />
 
       <div className='mt-20 mb-0'><AdminToggle isAdmin={isAdmin} setIsAdmin={setIsAdmin} /></div>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import * as Dialog from '@radix-ui/react-dialog';
 
-export default function PlanoModal({ isOpen, onClose, onSave }) {
+export default function PlanoModal({ isOpen, onClose, onSave,planoEmEdicao }) {
   const [formData, setFormData] = useState({
     nomePlano: '', valorMensal: '', frequencia: '', beneficios: '', popular: false,
   });
@@ -15,11 +15,30 @@ export default function PlanoModal({ isOpen, onClose, onSave }) {
     }));
   };
 
+
+  useEffect(()=>{
+    if(isOpen){
+      if(planoEmEdicao){
+        setFormData({
+          nomePlano: planoEmEdicao.nomePlano,
+          valorMensal: planoEmEdicao.valorMensal,
+          frequencia: planoEmEdicao.frequencia,
+          beneficios: planoEmEdicao.beneficios ? planoEmEdicao.beneficios.join('\n') : '',
+          popular: planoEmEdicao.popular,
+        });
+      } else {
+        setFormData({
+          nomePlano: '', valorMensal: '', frequencia: '', beneficios: '', popular: false
+        });
+      }
+    }
+  },[isOpen,planoEmEdicao]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const beneficiosArray = formData.beneficios.split('\n').map(b => b.trim()).filter(b => b !== '');
     onSave({
-      id: Date.now(), 
+      id: planoEmEdicao? planoEmEdicao.id:Date.now(), 
       nomePlano: formData.nomePlano,
       valorMensal: parseFloat(formData.valorMensal),
       frequencia: parseInt(formData.frequencia),

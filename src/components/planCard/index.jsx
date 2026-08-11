@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trash2, Edit } from 'lucide-react';
 
-export default function PlanoCard({ plano,isAdmin, onDelete}) {
+export default function PlanoCard({ plano,isAdmin, onDelete, onEdit}) {
 
 
   return (
@@ -16,10 +16,10 @@ export default function PlanoCard({ plano,isAdmin, onDelete}) {
         </span>
       )}
 
-     
+      
       {isAdmin && (
         <div className="absolute top-4 right-4 flex gap-2">
-          <button className="p-1.5 rounded-lg text-gray-400 hover:text-blue-500 hover:bg-gray-200 transition-colors" title="Editar">
+          <button onClick={()=>onEdit(plano)} className="p-1.5 rounded-lg text-gray-400 hover:text-blue-500 hover:bg-gray-200 transition-colors" title="Editar">
             <Edit size={18} />
           </button>
           <button  onClick={()=>onDelete(plano.id)} className="p-1.5 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-100 transition-colors" title="Excluir">
