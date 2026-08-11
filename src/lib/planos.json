@@ -8,7 +8,8 @@
       "Acesso à área de musculação",
       "Aulas de Cross Training",
       "Acompanhamento básico"
-    ]
+    ],
+    "popular":false
   },
   {
     "id": 2,
@@ -20,7 +21,8 @@
       "Todas as aulas coletivas",
       "Avaliação física mensal",
       "Acesso aos vestiários premium"
-    ]
+    ],
+    "popular":true
   },
   {
     "id": 3,
@@ -33,6 +35,7 @@
       "Direito a 1 acompanhante por mês",
       "Desconto na loja de suplementos",
       "Camiseta exclusiva CrossForce"
-    ]
+    ],
+    "popular":false
   }
 ]

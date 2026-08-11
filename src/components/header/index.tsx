@@ -21,7 +21,7 @@ export default function Header() {
             <Link href="/">Sobre</Link>
           </li>
           <li>
-            <Link href="@/src/app/planosPage">Planos</Link>
+            <Link href="/planosPage/">Planos</Link>
           </li>
           <li>
             <Link href="/">Professores</Link>
