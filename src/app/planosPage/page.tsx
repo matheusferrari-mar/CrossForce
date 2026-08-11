@@ -16,6 +16,15 @@ export default function PlanosPage() {
     setIsModalOpen(false);
   };
 
+
+  const handleDelete = (idForDelete: number)=>{
+    const confirm = window.confirm("Voce tem certeza? A remoção é irreversível!");
+    if(confirm){
+      const novaLista =planosData.filter((plano)=>plano.id !== idForDelete);
+      setPlanosData(novaLista);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[#121212] py-20 px-6 font-sans flex flex-col items-center">
       
@@ -49,6 +58,7 @@ export default function PlanosPage() {
               key={plano.id} 
               plano={plano} 
               isAdmin={isAdmin} 
+              onDelete={handleDelete}
             />
           ))}
         </div>
