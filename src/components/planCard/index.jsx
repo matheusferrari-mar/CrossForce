@@ -11,7 +11,7 @@ export default function PlanoCard({ plano,isAdmin }) {
       
     
       {plano.popular && (
-        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#00cbe6] text-black font-extrabold text-[10px] tracking-widest uppercase py-1 px-4 rounded-full shadow-md">
+        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#00cbe6] text=[#f5f9f9] font-extrabold text-[10px] tracking-widest uppercase py-1 px-4 rounded-full shadow-md">
           Mais Popular
         </span>
       )}
@@ -59,7 +59,7 @@ export default function PlanoCard({ plano,isAdmin }) {
     
       <button className={`w-full py-3.5 mt-auto rounded-xl font-bold uppercase tracking-wide text-sm transition-colors shadow-md ${
         plano.popular 
-          ? 'bg-[#00cbe6] text-black hover:bg-[#00b3cc]' 
+          ? 'bg-[#00cbe6] text-white hover:bg-[#00b3cc]' 
           : 'bg-[#1a232c] text-white hover:bg-gray-800'
       }`}>
         Matricular-se
