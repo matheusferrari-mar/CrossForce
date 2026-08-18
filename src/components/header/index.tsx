@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import header from "@/src/components/header"
+import header from "@/src/components/header";
 
 export default function Header() {
   return (
     <header className="w-full z-20 flex items-center justify-between px-8 py-4 bg-gradient-to-b from-[#1C2E36] to-[#000000]">
-      
       {/* Logo do site */}
-      <div className="relative w-12 h-12 hover:scale-125 transition-all" >
+      <div className="relative w-12 h-12 hover:scale-125 transition-all">
         <Link href="/">
           <Image
             src="/img/logo.png"
@@ -27,7 +26,7 @@ export default function Header() {
             <Link href="/planosPage/">Planos</Link>
           </li>
           <li className="hover:scale-125 transition-all">
-            <Link href="/">Professores</Link>
+            <Link href="/professoresPage/">Professores</Link>
           </li>
         </ul>
       </nav>
