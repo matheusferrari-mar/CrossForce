@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import PlanoCard from '@/src/components/planCard';
 import AdminToggle from '@/src/components/adminToogle';
 import PlanoModal from '@/src/components/planModal'; 
@@ -62,7 +63,12 @@ const handleSalvarPlano = (planoSalvo:Plano) => {
       
       
       <div className="max-w-6xl w-full">
-        <div className="w-full flex justify-between items-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="w-full flex justify-between items-center mb-16"
+        >
           <div className="text-left space-y-2">
             <h2 className="text-4xl font-extrabold text-white tracking-tight uppercase">
               Nossos Planos
@@ -75,13 +81,13 @@ const handleSalvarPlano = (planoSalvo:Plano) => {
           {isAdmin && (
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="ml-auto bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 transition-colors uppercase text-sm tracking-wide shadow-lg"
+              className="ml-auto bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 transition-all duration-200 uppercase text-sm tracking-wide shadow-lg hover:scale-[1.03] hover:shadow-cyan-500/30 active:scale-[0.97]"
             >
             
               + Adicionar Plano
             </button>
           )}
-        </div>
+        </motion.div>
 
         <div className="flex flex-wrap justify-center gap-8 w-full">
           {planosData.map((plano) => (
