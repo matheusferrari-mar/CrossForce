@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 interface ImageCarouselProps {
   images: string[];
   altPrefix?: string;
-  autoPlayInterval?: number; // ms, 0 desativa autoplay
+  autoPlayInterval?: number; 
 }
 
 export default function ImageCarousel({
@@ -69,7 +69,7 @@ export default function ImageCarousel({
         </AnimatePresence>
       </div>
 
-      {/* Setas de navegação — aparecem no hover */}
+     
       <button
         onClick={() => paginate(-1)}
         className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-200 hover:scale-110"
@@ -85,7 +85,7 @@ export default function ImageCarousel({
         <ChevronRight size={22} />
       </button>
 
-      {/* Indicadores */}
+    
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
         {images.map((_, i) => (
           <button
