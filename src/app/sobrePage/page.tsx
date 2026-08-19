@@ -1,20 +1,32 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
+import ImageCarousel from "@/src/components/imageCarousel/ImageCarousel";
+
 export default function SobrePage() {
   const imagensAmbiente = [
     '/img/sobreImages/equipamentos.jpg',
     '/img/sobreImages/esteiras.jpg',
     '/img/sobreImages/halteresAcademia.jpg',
-    '/img/sobreImages/interiorAcademia.jpg'
+    '/img/sobreImages/interiorAcademia.jpg',
+    // adicione quantas imagens quiser aqui, o carrossel se ajusta sozinho
   ];
+
   return (
-    <div className="min-h-screen flex flex-col scroll-behavior: smooth">
-      
+    <div className="min-h-screen flex flex-col">
+
       <main className="flex-1 bg-[#f4f6f9] w-full py-16 px-6 sm:px-12">
         <div className="max-w-6xl mx-auto space-y-24">
-          
-         
+
           <section className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="flex-1 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="flex-1 space-y-6"
+            >
               <h1 className="text-4xl md:text-5xl font-extrabold text-black uppercase tracking-tight">
                 Conheça o nosso espaço
               </h1>
@@ -27,39 +39,38 @@ export default function SobrePage() {
                 Nosso ambiente é climatizado, inspirador e focado em resultados.
                 Venha treinar em um local que te impulsiona!
               </p>
-            </div>
-            
-           
-              <img 
-                src="/img/sobreImages/mapa.png" 
-                alt="Localização no mapa" 
-                className="w-full max-w-md rounded-2xl shadow-xl transition-transform hover:scale-120  "
-              />
-            
+            </motion.div>
+
+            <motion.img
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              src="/img/sobreImages/mapa.png"
+              alt="Localização no mapa"
+              className="w-full max-w-md rounded-2xl shadow-xl transition-transform duration-300 hover:scale-105"
+            />
           </section>
 
-        
-          <section className="text-center space-y-8">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="text-center space-y-8"
+          >
             <h2 className="text-3xl font-extrabold text-black uppercase tracking-wide">
               Nosso Ambiente
             </h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-              {imagensAmbiente.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt={`Ambiente ${index + 1}`}
-                  className="w-full aspect-square hover:scale-110 transition-transform object-cover rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-                />
-              ))}
+
+            <div className="max-w-3xl mx-auto">
+              <ImageCarousel images={imagensAmbiente} altPrefix="Ambiente da academia" />
             </div>
-          </section>
+          </motion.section>
 
         </div>
       </main>
 
-     
     </div>
   );
 }
