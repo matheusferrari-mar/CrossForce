@@ -7,7 +7,7 @@ export default function SobrePage() {
     '/img/sobreImages/interiorAcademia.jpg'
   ];
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col scroll-behavior: smooth">
       
       <main className="flex-1 bg-[#f4f6f9] w-full py-16 px-6 sm:px-12">
         <div className="max-w-6xl mx-auto space-y-24">
