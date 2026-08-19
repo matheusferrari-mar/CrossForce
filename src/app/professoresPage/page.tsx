@@ -1,5 +1,6 @@
 import React from "react";
 import Professores from "@/src/components/professores";
+import DetalhesProfessores from "@/src/components/detalhesProfessores";
 
 export const metadata = {
   title: "Professores e Treinadores - Academia Cross Force",
@@ -9,7 +10,7 @@ export const metadata = {
 export default function ProfessoresPage() {
   return (
     <main className="min-h-screen flex flex-col bg-[#f4f6f9]">
-      <Professores />
+      <DetalhesProfessores></DetalhesProfessores>
     </main>
   );
 }
