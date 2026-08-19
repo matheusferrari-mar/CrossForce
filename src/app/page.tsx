@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Professores from "../components/professores";
 
 export default function Home() {
   return (
@@ -45,7 +46,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+    <section>
+      <Professores></Professores>
+    </section>
     </main>
   );
 }
