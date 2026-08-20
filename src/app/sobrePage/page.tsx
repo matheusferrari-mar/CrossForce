@@ -161,7 +161,7 @@ export default function SobrePage() {
               Confira nossos planos e escolha o ideal para o seu objetivo.
             </p>
             <Link
-              href="/planos"
+              href="/planosPage"
               className="inline-block bg-[#00cbe6] hover:bg-[#00b3cc] text-white font-bold py-4 px-10 rounded-xl uppercase text-sm tracking-wide shadow-lg transition-all duration-200 hover:scale-[1.03] hover:shadow-cyan-500/30 active:scale-[0.97]"
             >
               Conheça nossos planos
