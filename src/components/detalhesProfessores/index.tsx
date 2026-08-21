@@ -12,6 +12,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import ProfessorModal, { Professor } from "@/src/components/professorModal";
+import AdminToggle from "@/src/components/adminToogle";
 import professoresInitialData from "@/src/lib/professores.json";
 
 function InstagramIcon({ className = "w-5 h-5" }) {
@@ -33,6 +34,7 @@ function InstagramIcon({ className = "w-5 h-5" }) {
 }
 
 export default function DetalhesProfessores() {
+  const [isAdmin, setIsAdmin] = useState(false);
   const [professores, setProfessores] = useState<Professor[]>(
     professoresInitialData as unknown as Professor[]
   );
@@ -113,12 +115,14 @@ export default function DetalhesProfessores() {
             NOSSOS TREINADORES
           </h1>
 
-          <button
-            onClick={handleNovoProfessor}
-            className="bg-[#1a232c] hover:bg-black text-white font-extrabold px-6 py-2.5 rounded-xl uppercase text-xs sm:text-sm tracking-wider shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
-          >
-            ADICIONAR
-          </button>
+          {isAdmin && (
+            <button
+              onClick={handleNovoProfessor}
+              className="bg-[#1a232c] hover:bg-black text-white font-extrabold px-6 py-2.5 rounded-xl uppercase text-xs sm:text-sm tracking-wider shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            >
+              ADICIONAR
+            </button>
+          )}
         </div>
 
         {/* Área do Carrossel com Setas e Card */}
@@ -190,27 +194,29 @@ export default function DetalhesProfessores() {
                     </button>
 
                     {/* Botões de Ação (Editar e Excluir) */}
-                    <div className="flex items-center gap-3">
-                      <button
-                        onClick={() => handleEditProfessor(professorAtual)}
-                        className="p-2.5 rounded-xl border border-gray-700 bg-gray-900/60 hover:bg-gray-800 text-emerald-400 hover:text-emerald-300 hover:border-emerald-500 transition-all cursor-pointer"
-                        title="Editar Informações"
-                        aria-label="Editar"
-                      >
-                        <Edit className="w-5 h-5" />
-                      </button>
+                    {isAdmin && (
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => handleEditProfessor(professorAtual)}
+                          className="p-2.5 rounded-xl border border-gray-700 bg-gray-900/60 hover:bg-gray-800 text-emerald-400 hover:text-emerald-300 hover:border-emerald-500 transition-all cursor-pointer"
+                          title="Editar Informações"
+                          aria-label="Editar"
+                        >
+                          <Edit className="w-5 h-5" />
+                        </button>
 
-                      <button
-                        onClick={() =>
-                          handleDeleteProfessor(professorAtual.id)
-                        }
-                        className="p-2.5 rounded-xl border border-gray-700 bg-gray-900/60 hover:bg-gray-800 text-gray-400 hover:text-red-400 hover:border-red-500 transition-all cursor-pointer"
-                        title="Excluir Treinador"
-                        aria-label="Excluir"
-                      >
-                        <Trash2 className="w-5 h-5" />
-                      </button>
-                    </div>
+                        <button
+                          onClick={() =>
+                            handleDeleteProfessor(professorAtual.id)
+                          }
+                          className="p-2.5 rounded-xl border border-gray-700 bg-gray-900/60 hover:bg-gray-800 text-gray-400 hover:text-red-400 hover:border-red-500 transition-all cursor-pointer"
+                          title="Excluir Treinador"
+                          aria-label="Excluir"
+                        >
+                          <Trash2 className="w-5 h-5" />
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -231,12 +237,14 @@ export default function DetalhesProfessores() {
             <p className="text-xl text-gray-400 mb-6">
               Nenhum treinador cadastrado no momento.
             </p>
-            <button
-              onClick={handleNovoProfessor}
-              className="bg-[#00cbe6] text-black font-bold px-6 py-3 rounded-xl hover:bg-[#00b3cc] transition-colors"
-            >
-              Adicionar Primeiro Treinador
-            </button>
+            {isAdmin && (
+              <button
+                onClick={handleNovoProfessor}
+                className="bg-[#00cbe6] text-black font-bold px-6 py-3 rounded-xl hover:bg-[#00b3cc] transition-colors"
+              >
+                Adicionar Primeiro Treinador
+              </button>
+            )}
           </div>
         )}
 
@@ -269,6 +277,10 @@ export default function DetalhesProfessores() {
         onSave={handleSalvarProfessor}
         professorEmEdicao={professorEditando}
       />
+
+      <div className="mt-20 mb-0">
+        <AdminToggle isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
+      </div>
     </div>
   );
 }
