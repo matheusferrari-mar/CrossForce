@@ -7,12 +7,12 @@ import AdminToggle from '@/src/components/adminToogle';
 import PlanoModal from '@/src/components/planModal'; 
 import planosJson from "@/src/lib/planos.json"
 export interface Plano {
-  id: number;
+  id: string | number;
   nomePlano: string;
   valorMensal: number;
-  frequencia: number;
+  frequencia: number | string;
   beneficios: string[];
-  popular: boolean;
+  popular?: boolean;
 }
 
 export default function PlanosPage() {
@@ -37,7 +37,7 @@ const handleSalvarPlano = (planoSalvo:Plano) => {
   };
 
 
-  const handleDelete = (idForDelete: number)=>{
+  const handleDelete = (idForDelete: string | number)=>{
     const confirm = window.confirm("Voce tem certeza? A remoção é irreversível!");
     if(confirm){
       const novaLista =planosData.filter((plano)=>plano.id !== idForDelete);

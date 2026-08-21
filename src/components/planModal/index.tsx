@@ -7,7 +7,7 @@ export interface Plano {
   id: string | number;
   nomePlano: string;
   valorMensal: number;
-  frequencia: number;
+  frequencia: number | string;
   beneficios: string[];
   popular?: boolean;
 }

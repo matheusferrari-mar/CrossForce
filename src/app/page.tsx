@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Professores from "../components/professores";
 import Sobre from "../components/sobreNos";
+import PlanosHome from "../components/planosHome";
 
 export default function Home() {
   return (
@@ -53,9 +54,14 @@ export default function Home() {
       </section>
 
       <section>
+        <PlanosHome />
+      </section>
+
+      <section>
         <Professores></Professores>
       </section>
 
     </main>
   );
 }
+
