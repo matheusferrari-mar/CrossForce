@@ -1,4 +1,4 @@
-// --- ARQUIVO 2: COMPONENTE SOBRE NOS ---
+
 "use client";
 
 import Image from "next/image";
