@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "src/components/planCard/index.tsx", "src/components/planModal/index.tsx", "src/components/adminToogle/index.jsx"  ],
   "exclude": ["node_modules"]
 }

@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "nomePlano": "SEMANAL",
+    "valorMensal": 29.90,
+    "frequencia": 3,
+    "beneficios": [
+      "Acesso à área de musculação",
+      "Aulas de Cross Training",
+      "Acompanhamento básico"
+    ],
+    "popular":false
+  },
+  {
+    "id": 2,
+    "nomePlano": "MENSAL",
+    "valorMensal": 89.90,
+    "frequencia": 5,
+    "beneficios": [
+      "Acesso livre à musculação",
+      "Todas as aulas coletivas",
+      "Avaliação física mensal",
+      "Acesso aos vestiários premium"
+    ],
+    "popular":true
+  },
+  {
+    "id": 3,
+    "nomePlano": "ANUAL",
+    "valorMensal": 1000.00,
+    "frequencia": 7,
+    "beneficios": [
+      "Acesso ilimitado (todos os dias)",
+      "Consultoria nutricional",
+      "Direito a 1 acompanhante por mês",
+      "Desconto na loja de suplementos",
+      "Camiseta exclusiva CrossForce"
+    ],
+    "popular":false
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nome": "Phyll",
+    "especializacao": "Especializado em Zumba",
+    "cref": "CREF:102382138102481481209",
+    "instagram": "phyll.fisio1337",
+    "foto": "/img/professores/treinador1.png",
+    "bio": "Com mais de 10 anos de experiência em alta performance e condicionamento físico, Phyll é especialista em Treinamento Funcional e CrossFit. Formado em Educação Física, seu foco é ajudar os alunos a superarem seus limites de forma segura, garantindo resultados reais e a construção de um estilo de vida mais saudável e forte. Seja você iniciante ou atleta, o objetivo é um só: evolução constante.",
+    "certificados": [
+      "Bacharel em Educação Física",
+      "Especialista em Treinamento Funcional e CrossFit",
+      "Certificação Internacional em Condicionamento Físico"
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Ramon Kodyno",
+    "especializacao": "Especializada em Mobilidade & Funcional",
+    "cref": "CREF:084920193820192837482",
+    "instagram": "ramonKodyno22",
+    "foto": "/img/professores/treinador2.png",
+    "bio": "Focada em condicionamento cardiorrespiratório, flexibilidade, emagrecimento saudável e reabilitação postural. Desenvolve treinos progressivos adaptados a todos os níveis com acompanhamento personalizado.",
+    "certificados": [
+      "Pós-graduação em Biomecânica do Movimento",
+      "Instrutora de Treinamento Funcional e Mobilidade",
+      "Coach de Performance e Saúde"
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "Brenao",
+    "especializacao": "Especializado em CrossFit & LPO",
+    "cref": "CREF:095819284719283746192",
+    "instagram": "brenaoCrossTraining",
+    "foto": "/img/professores/treinador3.png",
+    "bio": "Treinador de CrossFit e força explosiva, focado no ganho de resistência muscular, potência e superação de limites individuais com máxima segurança e foco postural.",
+    "certificados": [
+      "Certificação CrossFit Level 2",
+      "Treinador de Levantamento de Peso Olímpico (LPO)",
+      "Especialista em Treinamento de Alta Intensidade"
+    ]
+  }
+]
